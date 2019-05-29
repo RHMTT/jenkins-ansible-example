@@ -1,8 +1,17 @@
 - hosts: all
   vars:
     jenkins_hostname: jenkins01.home.ad
+    jenkins_admin_username: admin
+    jenkins_admin_password: admin
+    jenkins2_ssh_keys_generate: True
+    jenkins2_cli_username: "{{ jenkins_admin_username }}"
+    jenkins2_cli_password: "{{ jenkins_admin_password }}"
   roles:
-    - role: geerlingguy.java
+#    - role: geerlingguy.java
+#      become: yes
+#    - role: geerlingguy.jenkins
+#      become: yes
+    - role: lean_delivery.java
       become: yes
-    - role: geerlingguy.jenkins
+    - role: lean_delivery.jenkins
       become: yes
