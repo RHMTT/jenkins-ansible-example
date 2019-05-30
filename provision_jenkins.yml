@@ -1,24 +1,12 @@
 - hosts: all
   vars:
-    jenkins_hostname: jenkins01.home.ad
     jenkins_admin_username: admin
     jenkins_admin_password: admin
     jenkins2_cli_username: "{{ jenkins_admin_username }}"
     jenkins2_cli_password: "{{ jenkins_admin_password }}"
     jenkins2_credentials_enabled: True
-    jenkins2_credentials:
-      ansible_tower:
-        type: 'password'
-        id: 'ansible_tower'
-        description: 'ansible tower credentials'
-        username: "{{ lookup('env', 'TOWER_USERNAME') | default('admin') }}"
-        password: "{{ lookup('env', 'TOWER_PASSWORD') | default('admin') }}"
   roles:
     - role: geerlingguy.java
       become: yes
-#    - role: geerlingguy.jenkins
-#      become: yes
-#    - role: lean_delivery.java
-#      become: yes
     - role: lean_delivery.jenkins
       become: yes
