@@ -4,6 +4,7 @@
     jenkins_admin_password: admin
     jenkins2_cli_username: "{{ jenkins_admin_username }}"
     jenkins2_cli_password: "{{ jenkins_admin_password }}"
+    jenkins2_config_http_port: 8080
     jenkins2_credentials_enabled: True
     jenkins2_credentials:
       githubtoken:
