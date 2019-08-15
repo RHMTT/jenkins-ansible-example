@@ -10,7 +10,7 @@
         type: 'secrettext'
         id: 'github_token'
         description: 'github credentials'
-        secret: "{{ github_token | default('') }}"
+        token: "{{ github_token | default('') }}"
     jenkins2_github_enabled: True
     github_external_url: https://api.github.com
     github_manage_hooks: False
